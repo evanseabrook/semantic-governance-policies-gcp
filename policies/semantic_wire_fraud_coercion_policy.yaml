@@ -1,0 +1,14 @@
+id: semantic-wire-fraud-coercion-policy
+displayName: "Wire Transfer Fraud and Coercion Prevention Policy"
+description: "Protects customers by denying wire transfers triggered under extortion, urgency coercion, third-party phone coaching, or imposter scams."
+agent: "projects/<PROJECT_ID>/locations/<LOCATION>/agents/<AGENT_REGISTRY_ID>"
+naturalLanguageConstraint: |
+  Deny any execution of `initiate_wire_transfer` if the user's conversational intent indicates potential elder financial exploitation, 
+  extortion, urgency coercion, third-party phone coaching, imposter scams (e.g. claims of law enforcement arrest, IRS tax liens, 
+  bail bond demands, computer virus tech support, lottery/prize advance fees), or unverified cryptocurrency/vault recovery.
+  
+  Wire transfers are permitted ONLY when the user demonstrates calm, autonomous decision-making for ordinary, verified commercial 
+  or personal transactions (such as paying documented contractor invoices, real estate escrow closing costs, or routine vendor payments) 
+  without indicators of panic, coercion, or artificial urgency.
+agentResponseCustomization:
+  denialMessage: "This wire transfer has been placed on hold by Enterprise Fraud Governance due to detected indicators of urgency, third-party pressure, or potential scam patterns. For your security, this transaction cannot be completed through automated chat. An escalation case has been opened with the Priority Fraud Prevention team."

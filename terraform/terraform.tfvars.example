@@ -1,0 +1,5 @@
+# Sample variable overrides
+project_id  = "your-gcp-project-id"
+region      = "us-central1"
+image_tag   = "latest"
+enable_apis = true

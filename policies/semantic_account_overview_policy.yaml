@@ -1,0 +1,12 @@
+id: semantic-account-overview-policy
+displayName: "Account Overview and Status Policy"
+description: "Restricts balance and transaction disclosure for accounts flagged with administrative or legal holds."
+agent: "projects/<PROJECT_ID>/locations/<LOCATION>/agents/<AGENT_REGISTRY_ID>"
+naturalLanguageConstraint: |
+  General account status and transaction lookups via `get_customer_overview` and `list_customer_transactions` are 
+  ALLOWED for active customer service queries.
+  However, if the customer's account is flagged with `account_status: SUSPENDED_LEGAL_HOLD`, the agent is NOT permitted 
+  to disclose balance details or transaction histories to non-compliance callers. 
+  The agent must inform the caller that the account is currently undergoing an administrative review and direct them to compliance support.
+agentResponseCustomization:
+  denialMessage: "This account is currently subject to an administrative hold. Sensitive financial details cannot be disclosed."

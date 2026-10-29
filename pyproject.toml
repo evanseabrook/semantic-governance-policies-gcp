@@ -1,0 +1,36 @@
+[project]
+name = "policy-fun"
+version = "0.1.0"
+description = "ADK Agent deployed to Agent Engine with Cloud Run MCP and Agent Gateway Semantic Governance"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "google-adk[a2a,agent-identity]>=2.12.0",
+    "mcp>=1.3.0,<2.0.0",
+    "starlette>=0.37.0",
+    "uvicorn>=0.30.0",
+    "pydantic>=2.0.0",
+    "google-auth>=2.30.0",
+    "google-cloud-aiplatform>=2.6.0",
+    "httpx>=0.27.0",
+    "pyyaml>=6.0",
+    "cloudpickle>=3.0.0",
+    "opentelemetry-instrumentation-google-genai>=0.7b1",
+    "opentelemetry-instrumentation-sqlite3>=0.63b1",
+    "opentelemetry-exporter-otlp-proto-grpc>=1.42.1",
+    "opentelemetry-exporter-otlp-proto-http>=1.42.1",
+    "opentelemetry-instrumentation-vertexai>=2.0b0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+asyncio_mode = "auto"
